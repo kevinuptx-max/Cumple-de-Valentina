@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Eduardo · 22</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            pink: { 500: '#ec4899', 600: '#db2777' },
+            cyan: { 500: '#06b6d4', 600: '#0891b2' },
+            purple: { 500: '#a855f6', 600: '#7c3aed' }
+          },
+          animation: { gradient: 'gradient 20s ease infinite' },
+          keyframes: { gradient: {
+            '0%, 100%': { 'background-position': '0% 50%' },
+            '50%': { 'background-position': '100% 50%' }
+          }}
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body { background: #000; margin:0; }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #000, #11001c, #000, #0a0026);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+    }
+    .glass {
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1.5rem;
+    }
+    .hover-lift { transition: all .4s; }
+    .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(236,72,153,.4); }
+
+    @keyframes destello { 0%{opacity:0;transform:translate(-50%,-50%)scale(0)} 40%{opacity:1;transform:translate(-50%,-50%)scale(1.6)} 100%{opacity:0;transform:translate(-50%,-50%)scale(3)} }
+    @keyframes serpentina { 0%{transform:translateY(-100px) rotate(0deg);opacity:1} 100%{transform:translateY(110vh) rotate(1080deg);opacity:0} }
+
+    /* AJUSTES MÓVIL */
+    @media (max-width: 640px) {
+      .mobile-text-5xl { font-size: 3.5rem; line-height: 1; }
+      .mobile-text-6xl { font-size: 4.5rem; line-height: 1; }
+      .mobile-text-7xl { font-size: 5.5rem; line-height: 1; }
+      .mobile-text-8xl { font-size: 6.5rem; line-height: 1; }
+      .mobile-text-9xl { font-size: 8rem; line-height: 1; }
+    }
+  </style>
+</head>
+<body class="gradient-bg text-white overflow-x-hidden">
+
+  <!-- Música (las dos fuentes originales) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="Mi_Cumpleanos.mp4" type="audio/mp4">
+    <source src="https://files.catbox.moe/8v3r0j.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HERO 100% RESPONSIVO -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute -top-32 -right-32 w-80 h-80 bg-pink-600/30 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-cyan-600/30 rounded-full blur-3xl animate-pulse" style="animation-delay:1s"></div>
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <!-- Nombre -->
+      <h1 class="text-5xl mobile-text-8xl font-black tracking-tighter mb-4 sm:mb-6">
+        <span class="relative inline-block">
+          <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400">Eduardo</span>
+          <span class="absolute inset-0 blur-xl opacity-70 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500">Eduardo</span>
+        </span>
+      </h1>
+
+      <p class="text-3xl mobile-text-6xl font-light mb-2 text-gray-300">cumple</p>
+      <p class="text-6xl mobile-text-9xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-cyan-500 leading-none">
+        22 <br><span class="text-5xl mobile-text-7xl">años</span>
+      </p>
+
+      <p class="text-lg sm:text-2xl text-gray-400 tracking-wider mb-8 px-4">
+        Sábado 29 de noviembre · desde las 4:00 PM
+      </p>
+
+      <!-- Cuenta regresiva móvil perfecta -->
+      <div id="countdown" class="my-10 px-4"></div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-3xl sm:text-4xl text-white/60"></i>
+    </div>
+  </section>
+
+  <!-- Tarjetas responsivas -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+    <div class="glass p-8 text-center hover-lift"><div class="text-6xl font-black text-pink-500 mb-3">22</div><p class="text-lg text-gray-300">Años de pura vibra</p></div>
+    <div class="glass p-8 text-center hover-lift"><div class="text-5xl font-bold text-cyan-400 mb-3">4:00 PM</div><p class="text-lg text-gray-300">La fiesta empieza puntual</p></div>
+    <div class="glass p-8 text-center hover-lift">
+      <i class="fas fa-location-dot text-5xl text-pink-500 mb-3"></i>
+      <p class="text-lg text-gray-300">Ubicación</p>
+      <a href="https://maps.app.goo.gl/DmJR2Ho75Rby4o3o7" target="_blank" class="block mt-4 text-cyan-400 hover:text-cyan-300 underline text-lg">Abrir en Maps</a>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-cyan-500">
+      Nos vemos aquí
+    </h2>
+    <div class="glass overflow-hidden rounded-3xl shadow-2xl">
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1764267040344!6m8!1m7!1sCAoSLEFGMVFpcE5fZ2d3Z2d3Z2d3!2m2!1d19.333509115481895!2d-98.22775902827644!3f0!4f-15!5f0.7820865974627469"
+        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Confirmación WhatsApp -->
+  <section class="px-4 sm:px-6 py-24 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-cyan-500">
+      Confirmá tu asistencia
+    </h2>
+    <a href="https://wa.link/snvaaf" target="_blank"
+       class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-500 px-10 py-6 rounded-full text-xl sm:text-2xl font-bold shadow-2xl hover-lift">
+      <i class="fab fa-whatsapp text-3xl sm:text-4xl"></i> WhatsApp
+    </a>
+  </section>
+
+  <!-- Botón música (más grande en móvil) -->
+  <button onclick="toggleMusic()" class="fixed bottom-6 right-6 glass rounded-full p-5 sm:p-6 shadow-2xl z-50 hover:scale-110 transition text-3xl sm:text-2xl">
+    <i id="icon" class="fas fa-volume-mute"></i>
+  </button>
+
+<script>
+  const audio = document.getElementById('bgMusic');
+  const icon = document.getElementById('icon');
+  let musicaActivada = false;
+
+  // Efectos visuales
+  const colores = ['#ec4899','#a855f6','#06b6d4','#ff66cc','#00ffff','#ff33ff'];
+  const coloresSerp = ['#ec4899','#a855f6','#06b6d4','#ff66cc','#ffff33','#00ff99'];
+
+  function crearDestello() {
+    const d = document.createElement('div');
+    const c = colores[Math.floor(Math.random()*colores.length)];
+    Object.assign(d.style, {position:'fixed',top:Math.random()*100+'vh',left:Math.random()*100+'vw',
+      width:(Math.random()*250+150)+'px',height:'same',background:`radial-gradient(circle,${c}99,transparent)`,
+      borderRadius:'50%',pointerEvents:'none',zIndex:'9999',opacity:'0',
+      transform:'translate(-50%,-50%) scale(0)',animation:'destello 1.6s ease-out forwards'});
+    document.body.appendChild(d); setTimeout(()=>d.remove(),1600);
+  }
+  function crearSerpentina() {
+    const s = document.createElement('div');
+    const c = coloresSerp[Math.floor(Math.random()*coloresSerp.length)];
+    Object.assign(s.style, {position:'fixed',top:'-20px',left:Math.random()*100+'vw',
+      width:(Math.random()*10+6)+'px',height:(Math.random()*100+80)+'px',background:c,
+      borderRadius:'10px',pointerEvents:'none',zIndex:'9998',boxShadow:`0 0 30px ${c}`,
+      transform:`rotate(${Math.random()*360}deg)`,animation:`serpentina ${Math.random()*3+5}s linear forwards`});
+    document.body.appendChild(s); setTimeout(()=>s.remove(),10000);
+  }
+  function fiestaEpica(c=100){ let f=0,s=0; const i=setInterval(()=>{if(f<c){crearDestello();f++}if(s<c*1.5){crearSerpentina();s++}if(f>=c&&s>=c*1.5)clearInterval(i);},40); }
+
+  // Desbloqueo de audio garantizado
+  function unlockAudio() {
+    if (musicaActivada) return;
+    const unlock = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=");
+    unlock.play().then(() => audio.play()).then(() => {
+      musicaActivada = true;
+      icon.className = "fas fa-volume-up";
+      fiestaEpica(80);
+    });
+  }
+  document.body.addEventListener('click', unlockAudio, { once: true });
+  document.body.addEventListener('touchstart', unlockAudio, { once: true });
+
+  function toggleMusic() {
+    if (!musicaActivada) { unlockAudio(); return; }
+    if (audio.paused) { audio.play(); icon.className = "fas fa-volume-up"; fiestaEpica(50); }
+    else { audio.pause(); icon.className = "fas fa-volume-mute"; }
+  }
+
+  // CUENTA REGRESIVA RESPONSIVA
+  const fechaCumple = new Date('2025-11-29T16:00:00').getTime();
+  let yaLlego = false;
+
+  function countdown() {
+    const diff = fechaCumple - Date.now();
+    if (diff <= 0 && !yaLlego) {
+      yaLlego = true;
+      document.getElementById('countdown').innerHTML = `
+        <div class="text-5xl sm:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 animate-pulse">
+          ¡YA ES EL DÍA! 🎉🎂
+        </div>`;
+      fiestaEpica(250);
+      return;
+    }
+    if (diff <= 0) return;
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('countdown').innerHTML = `
+      <div class="grid grid-cols-4 gap-3 sm:gap-8 text-center">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-4 sm:p-6 border border-white/20">
+          <div class="text-4xl sm:text-6xl font-black text-pink-400">${String(d).padStart(2,'0')}</div>
+          <div class="text-xs sm:text-lg text-gray-300 mt-1">Días</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-4 sm:p-6 border border-white/20">
+          <div class="text-4xl sm:text-6xl font-black text-purple-400">${String(h).padStart(2,'0')}</div>
+          <div class="text-xs sm:text-lg text-gray-300 mt-1">Horas</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-4 sm:p-6 border border-white/20">
+          <div class="text-4xl sm:text-6xl font-black text-cyan-400">${String(m).padStart(2,'0')}</div>
+          <div class="text-xs sm:text-lg text-gray-300 mt-1">Min</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-4 sm:p-6 border border-white/20 animate-pulse">
+          <div class="text-4xl sm:text-6xl font-black text-pink-500">${String(s).padStart(2,'0')}</div>
+          <div class="text-xs sm:text-lg text-gray-300 mt-1">Seg</div>
+        </div>
+      </div>`;
+  }
+  countdown();
+  setInterval(countdown, 1000);
+</script>
+</body>
+</html>
